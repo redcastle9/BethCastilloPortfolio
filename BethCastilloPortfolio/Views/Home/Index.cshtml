@@ -1,7 +1,15 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
+﻿		<!-- Nav -->
+        <nav id="nav">
+            <ul class="container">
+                <li><a href="#top">Top</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        @Html.Partial("Top")
+        @Html.Partial("Work")
+        @Html.Partial("Portfolio")
+        @Html.Partial("Contact")
 
-<h2>Index</h2>
 

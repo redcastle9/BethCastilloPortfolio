@@ -4,10 +4,16 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
 </head>
 <body>
     <div>
         @RenderBody()
     </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryscrolly")
+    @Scripts.Render("~/bundles/skel")
+    @Scripts.Render("~/bundles/scripts")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
