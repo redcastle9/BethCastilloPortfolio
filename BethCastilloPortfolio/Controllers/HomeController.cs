@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Net.Mail;
+using BethCastilloPortfolio.Models;
 
 namespace BethCastilloPortfolio.Controllers
 {
@@ -31,6 +33,16 @@ namespace BethCastilloPortfolio.Controllers
 
         public ActionResult Contact()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Contact(ContactModel c)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
             return View();
         }
     }
