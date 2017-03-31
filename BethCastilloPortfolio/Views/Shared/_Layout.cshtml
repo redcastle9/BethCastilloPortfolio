@@ -15,5 +15,16 @@
     @Scripts.Render("~/bundles/skel")
     @Scripts.Render("~/bundles/scripts")
     @RenderSection("scripts", required: false)
+    <script>
+        $(window).scroll(function () {
+            sessionStorage.scrollTop = $(this).scrollTop();
+        });
+
+        $(document).ready(function () {
+            if (sessionStorage.scrollTop != "undefined") {
+                $(window).scrollTop(sessionStorage.scrollTop);
+            }
+        });
+    </script>
 </body>
 </html>

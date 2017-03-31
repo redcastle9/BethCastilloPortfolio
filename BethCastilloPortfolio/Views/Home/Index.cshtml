@@ -1,17 +1,19 @@
-﻿		<!-- Nav -->
-        <nav id="nav">
-            <ul class="container">
-                <li><a href="#top">Me</a></li>
-                <li><a href="#work">Work</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#blog">Blog</a></li>
-            </ul>
-        </nav>
-        @Html.Partial("Top")
-        @Html.Partial("Work")
-        @Html.Partial("Portfolio")
-        @Html.Partial("Contact")
+﻿@model BethCastilloPortfolio.Models.ContactModel
+
+		<!-- Nav -->
+		<nav id="nav">
+			<ul class="container">
+				<li><a href="#top">Me</a></li>
+				<li><a href="#work">Work</a></li>
+				<li><a href="#portfolio">Portfolio</a></li>
+				<li><a href="#contact">Contact</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#blog">Blog</a></li>
+			</ul>
+		</nav>
+		@Html.Partial("Top")
+		@Html.Partial("Work")
+		@Html.Partial("Portfolio")
+		@{ Html.RenderPartial("Contact", Model); }
 
 

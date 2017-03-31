@@ -160,6 +160,7 @@
     <Content Include="Content\assets\sass\libs\_skel.scss" />
     <Content Include="Content\assets\sass\libs\_vars.scss" />
     <Content Include="Content\assets\sass\main.scss" />
+    <None Include="Properties\PublishProfiles\bethcastillo.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
