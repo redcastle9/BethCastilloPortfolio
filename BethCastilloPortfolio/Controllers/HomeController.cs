@@ -5,7 +5,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Net.Mail;
 using BethCastilloPortfolio.Models;
+using reCaptcha;
 using System.Text;
+using System.Configuration;
+using System.Net;
 
 namespace BethCastilloPortfolio.Controllers
 {
@@ -15,13 +18,17 @@ namespace BethCastilloPortfolio.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Beth Castillo";
+            ViewBag.Recaptcha = ReCaptcha.GetHtml(ConfigurationManager.AppSettings["ReCaptcha:SiteKey"], theme: "blackglass");
+
             return View();
         }
+
 
         [HttpPost]
         public ActionResult Index(ContactModel c)
         {
-            if (ModelState.IsValid)
+
+            if (ModelState.IsValid && ReCaptcha.Validate(ConfigurationManager.AppSettings["ReCaptcha:SecretKey"]))
             {
                 try
                 {
@@ -43,9 +50,10 @@ namespace BethCastilloPortfolio.Controllers
                     msg.Dispose();
                     return View(c);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    return View("Index");
+                    string msg = ex.ToString();
+                    return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
                 }
             }
             return View(c);
